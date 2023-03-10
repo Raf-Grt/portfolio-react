@@ -1,0 +1,196 @@
+@use "../../assets/styles/mixins" as mixin;
+
+.contact {
+  &__container {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    column-gap: 6rem;
+    padding-bottom: 3rem;
+
+    @include mixin.xl {
+      column-gap: 3rem;
+    }
+
+    @include mixin.lg {
+      grid-template-columns: 1fr;
+      row-gap: 3rem;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    margin-bottom: var(--mb-1-5);
+  }
+
+  &__info {
+    display: grid;
+    row-gap: 1rem;
+    grid-template-columns: 300px;
+
+    @include mixin.lg {
+      justify-content: center;
+    }
+
+    @include mixin.md {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    background-color: var(--container-color);
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    text-align: center;
+
+    &-icon {
+      font-size: 2rem;
+      color: var(--title-color);
+      margin-bottom: var(--mb-0-25);
+    }
+
+    &-title,
+    &-data {
+      font-size: var(--small-font-size);
+    }
+
+    &-title {
+      font-weight: var(--font-medium);
+    }
+
+    &-data {
+      display: block;
+      margin-bottom: var(--mb-0-75);
+    }
+  }
+
+  &__button {
+    color: var(--text-color);
+    font-size: var(--small-font-size);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.25rem;
+
+    &-icon {
+      transition: 0.3s;
+    }
+
+    &:hover {
+      .contact__button-icon {
+        transform: translateX(0.25rem);
+      }
+    }
+  }
+
+  &__form {
+    width: 360px;
+
+    @include mixin.lg {
+      margin-inline: auto;
+    }
+
+    @include mixin.lg {
+      width: 100%;
+    }
+
+    &-div {
+      position: relative;
+      margin-bottom: var(--mb-2);
+      height: 4rem;
+    }
+
+    &-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba($color: #000000, $alpha: 0.3);
+      background: none;
+      color: var(--text-color);
+      outline: none;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      z-index: 1;
+    }
+
+    &-tag {
+      position: absolute;
+      top: -0.75rem;
+      left: 1.25rem;
+      font-size: var(--small-font-size);
+      padding: 0.25rem;
+      background-color: var(--body-color);
+      z-index: 10;
+    }
+
+    &-area {
+      height: 11rem;
+
+      & textarea {
+        resize: none;
+      }
+    }
+  }
+
+  &__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: var(--z-modal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+
+    &-content {
+      width: 500px;
+      position: relative;
+      background-color: var(--container-color);
+      padding: 4.5rem 2.5rem 2.5rem;
+      border-radius: 1.5rem;
+
+      @include mixin.md {
+        padding: 4.5rem 1.5rem 2.5rem;
+      }
+    }
+
+    &-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--title-color);
+      cursor: pointer;
+    }
+
+    &-title,
+    &-description {
+      text-align: center;
+    }
+
+    &-title {
+      font-size: var(--h3-font-size);
+      font-weight: var(--font-medium);
+      margin-bottom: var(--mb-1);
+    }
+
+    &-description {
+      font-size: var(--small-font-size);
+      padding: 0 3.5rem;
+      margin-bottom: var(--mb-2);
+      display: block;
+      margin-inline: auto;
+
+      @include mixin.md {
+        padding: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+@use "../../assets/styles/mixins" as mixin;
+
+.qualification {
+  &__container {
+    max-width: 768px;
+
+    @include mixin.xl {
+      margin-inline: auto;
+    }
+
+    @include mixin.lg {
+      margin-inline: var(--mb-1-5);
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--mb-2);
+  }
+
+  &__button {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    color: var(--title-color);
+    margin: 0 var(--mb-1);
+    cursor: pointer;
+
+    @include mixin.md {
+      margin: 0 var(--mb-0-75);
+    }
+
+    &:hover {
+      color: var(--title-color-dark);
+    }
+  }
+
+  &__icon {
+    font-size: 1.8rem;
+    margin-right: var(--mb-0-25);
+  }
+
+  &__active {
+    color: var(--title-color-dark);
+  }
+
+  &__sections {
+    display: grid;
+    grid-template-columns: 0.5fr;
+    justify-content: center;
+
+    @include mixin.md {
+      grid-template-columns: initial;
+    }
+  }
+
+  &__data {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    column-gap: 1.5rem;
+
+    @include mixin.xs {
+      gap: 0.5rem;
+      margin-inline: auto;
+    }
+  }
+
+  &__title {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+  }
+
+  &__subtitle {
+    display: inline-block;
+    font-size: var(--small-font-size);
+    margin-bottom: var(--mb-1);
+  }
+
+  &__calendar {
+    font-size: var(--small-font-size);
+  }
+
+  &__rounder {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+  }
+
+  &__line {
+    display: block;
+    width: 1px;
+    height: 100%;
+    background-color: var(--text-color);
+    transform: translate(6px, -7px);
+  }
+}

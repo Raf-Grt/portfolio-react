@@ -1,0 +1,90 @@
+@use "../../assets/styles/mixins" as mixin;
+
+.about {
+  &__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 4rem;
+
+    @include mixin.xl {
+      grid-template-columns: 1fr;
+      row-gap: 2.5rem;
+    }
+  }
+
+  &__img {
+    width: 350px;
+    border-radius: 1rem;
+    justify-self: center;
+
+    @include mixin.xl {
+      width: 220px;
+    }
+  }
+
+  &__data {
+    @include mixin.xl {
+      text-align: center;
+    }
+  }
+
+  &__info {
+    grid-template-columns: repeat(3, 140px);
+    gap: 0.5rem;
+    margin-bottom: var(--mb-2);
+
+    @include mixin.xl {
+      justify-content: center;
+    }
+
+    @include mixin.md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mixin.xs {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__box {
+    background-color: var(--container-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.75rem;
+    text-align: center;
+    padding: 1rem 1.25rem;
+
+    @include mixin.xl {
+      padding: 0.75rem 0.5rem;
+    }
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+    color: var(--title-color);
+    margin-bottom: var(--mb-0-5);
+  }
+
+  &__title {
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+  }
+
+  &__subtitle {
+    font-size: var(--tiny-font-size);
+  }
+
+  &__description {
+    padding: 0 4rem 0 0;
+    margin-bottom: var(--mb-2-5);
+    text-align: justify;
+
+    @include mixin.xl {
+      padding: 0 5rem;
+      margin-bottom: 2rem;
+    }
+
+    @include mixin.md {
+      padding: 0;
+    }
+  }
+}
